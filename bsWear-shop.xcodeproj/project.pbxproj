@@ -13,6 +13,7 @@
 		2591ECD9268E0B1600E6082E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2591ECD7268E0B1600E6082E /* Main.storyboard */; };
 		2591ECDB268E0B1C00E6082E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2591ECDA268E0B1C00E6082E /* Assets.xcassets */; };
 		2591ECDE268E0B1C00E6082E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2591ECDC268E0B1C00E6082E /* LaunchScreen.storyboard */; };
+		9761F6175CCFEB4BD2278807 /* Pods_bsWear_shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF39C664C2CFD733E907B40 /* Pods_bsWear_shop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		2591ECDA268E0B1C00E6082E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2591ECDD268E0B1C00E6082E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2591ECDF268E0B1C00E6082E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		878D58262B0C071C1F4623BD /* Pods-bsWear-shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bsWear-shop.debug.xcconfig"; path = "Target Support Files/Pods-bsWear-shop/Pods-bsWear-shop.debug.xcconfig"; sourceTree = "<group>"; };
+		BAF39C664C2CFD733E907B40 /* Pods_bsWear_shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bsWear_shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A4E03B96323BA90907EBBF /* Pods-bsWear-shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bsWear-shop.release.xcconfig"; path = "Target Support Files/Pods-bsWear-shop/Pods-bsWear-shop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9761F6175CCFEB4BD2278807 /* Pods_bsWear_shop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				2591ECD0268E0B1600E6082E /* bsWear-shop */,
 				2591ECCF268E0B1600E6082E /* Products */,
+				C7D32AA2A07EB01B44BB0288 /* Pods */,
+				9BCC0C275FC48166CFF615CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = "bsWear-shop";
 			sourceTree = "<group>";
 		};
+		9BCC0C275FC48166CFF615CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAF39C664C2CFD733E907B40 /* Pods_bsWear_shop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7D32AA2A07EB01B44BB0288 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				878D58262B0C071C1F4623BD /* Pods-bsWear-shop.debug.xcconfig */,
+				D2A4E03B96323BA90907EBBF /* Pods-bsWear-shop.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2591ECE2268E0B1C00E6082E /* Build configuration list for PBXNativeTarget "bsWear-shop" */;
 			buildPhases = (
+				E4865CA4923549CBB509B25E /* [CP] Check Pods Manifest.lock */,
 				2591ECCA268E0B1600E6082E /* Sources */,
 				2591ECCB268E0B1600E6082E /* Frameworks */,
 				2591ECCC268E0B1600E6082E /* Resources */,
+				2C78150F952B6EF5EAF64E59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C78150F952B6EF5EAF64E59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bsWear-shop/Pods-bsWear-shop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bsWear-shop/Pods-bsWear-shop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bsWear-shop/Pods-bsWear-shop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4865CA4923549CBB509B25E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bsWear-shop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2591ECCA268E0B1600E6082E /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		2591ECE3268E0B1C00E6082E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878D58262B0C071C1F4623BD /* Pods-bsWear-shop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		2591ECE4268E0B1C00E6082E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A4E03B96323BA90907EBBF /* Pods-bsWear-shop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
