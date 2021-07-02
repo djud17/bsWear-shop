@@ -13,11 +13,16 @@ extension CategoryViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! CategoryTableViewCell
         let categoryModel = productCategories[indexPath.row]
         
-        cell?.textLabel?.text = categoryModel.name
+        cell.categoryNameLabel.text = categoryModel.name
+        cell.categoryIconImageView.load(URL(string: "http://blackstarshop.ru/\(categoryModel.iconUrl)")!)
+
+        if categoryModel.imageUrl != "" {
+            cell.categoryImageView.load(URL(string: "http://blackstarshop.ru/\(categoryModel.imageUrl)")!)
+        }
         
-        return cell!
+        return cell
     }
 }

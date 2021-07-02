@@ -10,12 +10,14 @@ import Foundation
 class ProductCategory {
     let name: String
     let sortOrder: Int
+    let iconUrl: String
     let imageUrl: String
     var subcategories: [SubCategory] = []
     
     init?(data: NSDictionary) {
         guard let name = data["name"] as? String,
             let sortOrder = data["sortOrder"] as? String,
+            let iconUrl = data["iconImage"] as? String,
             let imageUrl = data["image"] as? String,
             let subcategories = data["subcategories"] as? [Dictionary<String, Any>] else {
                 return nil
@@ -24,6 +26,7 @@ class ProductCategory {
         self.name = name
         self.sortOrder = Int(sortOrder) ?? 0
         self.imageUrl = imageUrl
+        self.iconUrl = iconUrl
         
         for dict in subcategories {
             var subCategory = SubCategory()

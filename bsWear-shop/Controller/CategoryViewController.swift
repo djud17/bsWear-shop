@@ -31,12 +31,9 @@ class CategoryViewController: UIViewController {
                 self.productCategories = result
                 self.productCategories.sort{$0.sortOrder < $1.sortOrder}
                 self.categoryTableView.reloadData()
-                print(self.productCategories[5].name)
-                print(self.productCategories[5].subcategories)
             }
         }
     }
-
 
 }
 
