@@ -6,3 +6,49 @@
 //
 
 import Foundation
+
+class ProductCategory {
+    let name: String
+    let sortOrder: Int
+    let imageUrl: String
+    var subcategories: [SubCategory] = []
+    
+    init?(data: NSDictionary) {
+        guard let name = data["name"] as? String,
+            let sortOrder = data["sortOrder"] as? String,
+            let imageUrl = data["image"] as? String,
+            let subcategories = data["subcategories"] as? [Dictionary<String, Any>] else {
+                return nil
+        }
+        
+        self.name = name
+        self.sortOrder = Int(sortOrder) ?? 0
+        self.imageUrl = imageUrl
+        
+        for dict in subcategories {
+            var subCategory = SubCategory()
+            for _ in dict {
+                if let id = dict["id"] as? String,
+                      let iconImage = dict["iconImage"] as? String,
+                      let sortOrder = dict["sortOrder"] as? String,
+                      let name = dict["name"] as? String,
+                      let type = dict["type"] as? String {
+                    subCategory.id = id
+                    subCategory.iconImage = iconImage
+                    subCategory.sortOrder = sortOrder
+                    subCategory.name = name
+                    subCategory.type = type
+                }
+            }
+            self.subcategories.append(subCategory)
+        }
+    }
+}
+
+struct SubCategory {
+    var id: String = ""
+    var iconImage: String = ""
+    var sortOrder: String = ""
+    var name: String = ""
+    var type: String = ""
+}

@@ -8,10 +8,33 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    @IBOutlet weak var categoryTableView: UITableView!
+    
+    var productCategories: [ProductCategory] = []
+    let apiClient: ApiClient = ApiClientImpl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        navigationItem.title = "Категории"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        categoryTableView.tableFooterView = UIView()
+        
+        loadData()
+    }
+    
+    func loadData() {
+        apiClient.getData { result in
+            DispatchQueue.main.async {
+                self.productCategories = result
+                self.productCategories.sort{$0.sortOrder < $1.sortOrder}
+                self.categoryTableView.reloadData()
+                print(self.productCategories[5].name)
+                print(self.productCategories[5].subcategories)
+            }
+        }
     }
 
 
