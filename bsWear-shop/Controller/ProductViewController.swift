@@ -8,22 +8,37 @@
 import UIKit
 
 class ProductViewController: UIViewController {
+    
+    @IBOutlet weak var productsCollectionView: UICollectionView!
+    
+    var categoryId = ""
+    var products: [Product] = []
+    var currency = " \u{20BD}"
+    let apiClient: ApiClient = ApiClientImpl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.title = "Товары"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        loadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadData() {
+        apiClient.getProducts(categoryId) { result in
+            DispatchQueue.main.async {
+                self.products = result
+                self.productsCollectionView.reloadData()
+            }
+        }
     }
-    */
+    
+    func beautyPrice(_ price: String) -> String {
+        let arr = price.components(separatedBy: ".")
+        let newPrice = arr[0] + currency
+        
+        return newPrice
+    }
 
 }

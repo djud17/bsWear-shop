@@ -26,7 +26,7 @@ class CategoryViewController: UIViewController {
     }
     
     func loadData() {
-        apiClient.getData { result in
+        apiClient.getCategories { result in
             DispatchQueue.main.async {
                 self.productCategories = result
                 self.productCategories.sort{$0.sortOrder < $1.sortOrder}

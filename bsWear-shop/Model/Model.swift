@@ -55,3 +55,79 @@ struct SubCategory {
     var name: String = ""
     var type: String = ""
 }
+
+class Product {
+    var name: String = ""
+    var sortOrder: String = ""
+    var article: String = ""
+    var description: String = ""
+    var colorName: String = ""
+    var colorImageURL: String = ""
+    var mainImage: String = ""
+    var productImages: [ProductImage] = []
+    var offers: [Offer] = []
+    var price: String = ""
+    
+    init?(data: NSDictionary) {
+        guard let name = data["name"] as? String,
+              let sortOrder = data["sortOrder"] as? String,
+              let article = data["article"] as? String,
+              let description = data["description"] as? String,
+              let colorName = data["colorName"] as? String,
+              let colorImageURL = data["colorImageURL"] as? String,
+              let mainImage = data["mainImage"] as? String,
+              let price = data["price"] as? String,
+              let offers = data["offers"] as? [Dictionary<String, Any>],
+              let productImages = data["productImages"] as? [Dictionary<String, Any>] else {
+            return nil
+        }
+        
+        self.name = name
+        self.sortOrder = sortOrder
+        self.article = article
+        self.description = description
+        self.colorName = colorName
+        self.colorImageURL = colorImageURL
+        self.mainImage = mainImage
+        self.price = price
+        
+        for dict in productImages {
+            var productImage = ProductImage()
+            for _ in dict {
+                if let imageURL = dict["imageURL"] as? String,
+                      let sortOrder = dict["sortOrder"] as? String {
+                    productImage.imageURL = imageURL
+                    productImage.sortOrder = sortOrder
+                }
+            }
+            self.productImages.append(productImage)
+        }
+        
+        for dict in offers {
+            var offer = Offer()
+            for _ in dict {
+                if let size = dict["size"] as? String,
+                   let productOfferID = dict["productOfferID"] as? String,
+                      let quantity = dict["quantity"] as? String {
+                    offer.size = size
+                    offer.productOfferID = productOfferID
+                    offer.quantity = quantity
+                }
+            }
+            self.offers.append(offer)
+        }
+    }
+}
+
+struct ProductImage {
+    var imageURL: String = ""
+    var sortOrder: String = ""
+}
+
+struct Offer {
+    var size: String = ""
+    var productOfferID: String = ""
+    var quantity: String = ""
+}
+
+

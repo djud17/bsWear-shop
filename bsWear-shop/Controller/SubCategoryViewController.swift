@@ -9,10 +9,17 @@ import UIKit
 
 class SubCategoryViewController: UIViewController {
     
+    @IBOutlet weak var subCategoryTableView: UITableView!
+    
     var subcategories: [SubCategory] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Подкатегории"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        subCategoryTableView.tableFooterView = UIView()
     }
 
 }
