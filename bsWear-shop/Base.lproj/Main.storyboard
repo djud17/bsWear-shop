@@ -305,16 +305,16 @@
                                 </constraints>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-L2-VPx">
-                                <rect key="frame" x="0.0" y="416" width="414" height="28"/>
+                                <rect key="frame" x="0.0" y="364" width="414" height="28"/>
                                 <connections>
                                     <action selector="swipeImage:" destination="g12-no-HzX" eventType="valueChanged" id="MWi-SN-ahp"/>
                                 </connections>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAc-0z-0I1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="364"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="312"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="364" id="Leo-Z7-pZL"/>
+                                    <constraint firstAttribute="height" constant="312" id="Leo-Z7-pZL"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORc-F8-zv9">
@@ -382,7 +382,7 @@
                             <constraint firstItem="4xQ-1J-ij6" firstAttribute="trailing" secondItem="ZY9-5s-FXi" secondAttribute="trailing" constant="20" id="Ri2-0b-qg6"/>
                             <constraint firstItem="hI7-f7-7hb" firstAttribute="top" secondItem="ORc-F8-zv9" secondAttribute="bottom" constant="5" id="Su7-JC-8L5"/>
                             <constraint firstItem="ZY9-5s-FXi" firstAttribute="top" secondItem="hI7-f7-7hb" secondAttribute="bottom" constant="10" id="T8u-wT-Yaq"/>
-                            <constraint firstItem="J9a-L2-VPx" firstAttribute="top" secondItem="4xQ-1J-ij6" secondAttribute="top" constant="372" id="TJE-AX-ynH"/>
+                            <constraint firstItem="J9a-L2-VPx" firstAttribute="top" secondItem="4xQ-1J-ij6" secondAttribute="top" constant="320" id="TJE-AX-ynH"/>
                             <constraint firstItem="J9a-L2-VPx" firstAttribute="trailing" secondItem="4xQ-1J-ij6" secondAttribute="trailing" id="VBU-wX-JD8"/>
                             <constraint firstItem="ZY9-5s-FXi" firstAttribute="leading" secondItem="4xQ-1J-ij6" secondAttribute="leading" constant="20" id="VgC-j4-oDz"/>
                             <constraint firstItem="4xQ-1J-ij6" firstAttribute="trailing" secondItem="BAr-98-2Om" secondAttribute="trailing" constant="20" id="c9k-TJ-pae"/>
