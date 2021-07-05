@@ -35,9 +35,10 @@ extension SubCategoryViewController: UITableViewDataSource {
 extension SubCategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewController = storyboard.instantiateViewController(identifier: "productVC") as! ProductViewController
+        let viewController = storyboard.instantiateViewController(identifier: "productVC") as! ProductListViewController
         
         viewController.categoryId = subcategories[indexPath.row].id
+        viewController.categoryName = subcategories[indexPath.row].name
         
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)

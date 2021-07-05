@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ProductViewController: UICollectionViewDataSource {
+extension ProductListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         products.count
     }
@@ -19,8 +19,20 @@ extension ProductViewController: UICollectionViewDataSource {
         
         cell.productImage.load(url)
         cell.productNameLabel.text = model.name
-        cell.productPriceLabel.text = beautyPrice(model.price)
+        cell.productPriceLabel.text = beautyPrice(model.price,currency)
         
         return cell
+    }
+}
+
+extension ProductListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let viewController = storyboard.instantiateViewController(identifier: "productCardVC") as! ProductCardViewController
+        
+        viewController.product = products[indexPath.row]
+        
+        navigationController?.pushViewController(viewController, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

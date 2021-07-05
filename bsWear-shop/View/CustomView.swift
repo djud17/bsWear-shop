@@ -35,9 +35,14 @@ class CustomBackView: UIView {
     func setupView() {
         layer.borderWidth = 1
         layer.cornerRadius = 15
-        clipsToBounds = true
+        clipsToBounds = false
         
         layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 5
     }
 }

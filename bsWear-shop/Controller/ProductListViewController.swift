@@ -7,19 +7,20 @@
 
 import UIKit
 
-class ProductViewController: UIViewController {
+class ProductListViewController: UIViewController {
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
     var categoryId = ""
+    var categoryName = ""
+    let currency = " \u{20BD}"
     var products: [Product] = []
-    var currency = " \u{20BD}"
     let apiClient: ApiClient = ApiClientImpl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Товары"
+        navigationItem.title = categoryName
         navigationController?.navigationBar.prefersLargeTitles = true
         
         loadData()
@@ -34,11 +35,6 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func beautyPrice(_ price: String) -> String {
-        let arr = price.components(separatedBy: ".")
-        let newPrice = arr[0] + currency
-        
-        return newPrice
-    }
+    
 
 }

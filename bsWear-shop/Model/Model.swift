@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class ProductCategory {
     let name: String
@@ -16,11 +17,11 @@ class ProductCategory {
     
     init?(data: NSDictionary) {
         guard let name = data["name"] as? String,
-            let sortOrder = data["sortOrder"] as? String,
-            let iconUrl = data["iconImage"] as? String,
-            let imageUrl = data["image"] as? String,
-            let subcategories = data["subcategories"] as? [Dictionary<String, Any>] else {
-                return nil
+              let sortOrder = data["sortOrder"] as? String,
+              let iconUrl = data["iconImage"] as? String,
+              let imageUrl = data["image"] as? String,
+              let subcategories = data["subcategories"] as? [Dictionary<String, Any>] else {
+            return nil
         }
         
         self.name = name
@@ -30,6 +31,7 @@ class ProductCategory {
         
         for dict in subcategories {
             var subCategory = SubCategory()
+            var isEmpty = true
             for _ in dict {
                 if let id = dict["id"] as? String,
                       let iconImage = dict["iconImage"] as? String,
@@ -41,9 +43,12 @@ class ProductCategory {
                     subCategory.sortOrder = sortOrder
                     subCategory.name = name
                     subCategory.type = type
+                    isEmpty = !isEmpty
                 }
             }
-            self.subcategories.append(subCategory)
+            if !isEmpty {
+                self.subcategories.append(subCategory)
+            }
         }
     }
 }
@@ -128,6 +133,13 @@ struct Offer {
     var size: String = ""
     var productOfferID: String = ""
     var quantity: String = ""
+}
+
+class SelectedProduct: Object {
+    @objc dynamic var productName: String = ""
+    @objc dynamic var productSize: String = ""
+    @objc dynamic var productImage: String = ""
+    @objc dynamic var productPrice: String = ""
 }
 
 
